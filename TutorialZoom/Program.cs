@@ -17,13 +17,11 @@ namespace TutorialZoom
             // 0x0411FEC8 is the base address other then mc.windows.exe
             ClientInstance = MCM.baseEvaluatePointer(0x0411FEC8, MCM.ceByte2uLong("0 18"));
 
-            //Console.WriteLine(ClientInstance.ToString("X"));
-
-            new Keymap(); // init keymap
+            new Keymap(); //it says y
 
             Keymap.keyEvent += mcKeyEvent;
 
-            while (true) // pause console
+            while (true) //pc no dei
                 Thread.Sleep(1);
         }
 
@@ -35,8 +33,6 @@ namespace TutorialZoom
 
             ulong LocalPlayer = MCM.evaluatePointer(ClientInstance, MCM.ceByte2uLong("B8 0")); // dont base evl the local player
             ulong fieldOfViewAddr = LocalPlayer + 0x1140;
-
-            //Console.WriteLine(LocalPlayer.ToString("X"));
 
             if (e.vkey == VKeyCodes.KeyDown)
             {
